@@ -10,6 +10,15 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>http://laocaile.github.io/2024/01/21/test-file/</loc>
+    
+    <lastmod>2022-07-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   <url>
     <loc>http://laocaile.github.io/</loc>

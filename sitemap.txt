@@ -1,2 +1,3 @@
 http://laocaile.github.io/2024/01/21/hello-world/
+http://laocaile.github.io/2024/01/21/test-file/
 http://laocaile.github.io/
