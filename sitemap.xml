@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://laocaile.github.io/2024/01/21/hello-world/</loc>
+    <loc>http://laocaile.github.io/2024/01/21/test-file/</loc>
     
     <lastmod>2024-01-21</lastmod>
     
@@ -11,9 +11,9 @@
   </url>
   
   <url>
-    <loc>http://laocaile.github.io/2024/01/21/test-file/</loc>
+    <loc>http://laocaile.github.io/2024/01/21/hello-world/</loc>
     
-    <lastmod>2022-07-02</lastmod>
+    <lastmod>2024-01-21</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
