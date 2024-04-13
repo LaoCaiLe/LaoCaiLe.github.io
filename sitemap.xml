@@ -2,7 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://laocaile.github.io/C-C/index.html</loc>
+    <loc>http://laocaile.github.io/2024/04/13/ubuntu_auto_dhcp/</loc>
+    
+    <lastmod>2024-04-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://laocaile.github.io/categories/index.html</loc>
+    
+    <lastmod>2024-04-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://laocaile.github.io/2024/04/13/test-file/</loc>
+    
+    <lastmod>2024-04-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://laocaile.github.io/tags/index.html</loc>
     
     <lastmod>2024-04-13</lastmod>
     
@@ -19,15 +46,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>http://laocaile.github.io/2024/01/21/test-file/</loc>
-    
-    <lastmod>2024-01-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>http://laocaile.github.io/</loc>
@@ -37,6 +55,41 @@
   </url>
 
   
+  <url>
+    <loc>http://laocaile.github.io/tags/C-C/</loc>
+    <lastmod>2024-04-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://laocaile.github.io/tags/STM32/</loc>
+    <lastmod>2024-04-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://laocaile.github.io/tags/Linux/</loc>
+    <lastmod>2024-04-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
+  
+  <url>
+    <loc>http://laocaile.github.io/categories/ubuntu/</loc>
+    <lastmod>2024-04-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://laocaile.github.io/categories/test/</loc>
+    <lastmod>2024-04-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 </urlset>
