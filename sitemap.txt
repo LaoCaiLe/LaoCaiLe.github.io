@@ -1,3 +1,4 @@
+http://laocaile.github.io/2024/04/01/deal_with_same_func_in_class/
 http://laocaile.github.io/2024/04/13/ubuntu_auto_dhcp/
 http://laocaile.github.io/categories/index.html
 http://laocaile.github.io/2024/04/13/test-file/
@@ -7,5 +8,6 @@ http://laocaile.github.io/
 http://laocaile.github.io/tags/C-C/
 http://laocaile.github.io/tags/STM32/
 http://laocaile.github.io/tags/Linux/
+http://laocaile.github.io/categories/C-C/
 http://laocaile.github.io/categories/ubuntu/
 http://laocaile.github.io/categories/test/
