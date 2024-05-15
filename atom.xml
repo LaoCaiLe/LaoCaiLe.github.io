@@ -6,7 +6,7 @@
   <link href="http://laocaile.github.io/atom.xml" rel="self"/>
   
   <link href="http://laocaile.github.io/"/>
-  <updated>2024-04-27T07:01:12.303Z</updated>
+  <updated>2024-05-15T14:41:48.965Z</updated>
   <id>http://laocaile.github.io/</id>
   
   <author>
@@ -17,23 +17,24 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>ubuntu 网络不自动获取IP</title>
-    <link href="http://laocaile.github.io/2024/04/27/ubuntu_auto_dhcp/"/>
-    <id>http://laocaile.github.io/2024/04/27/ubuntu_auto_dhcp/</id>
-    <published>2024-04-27T07:01:12.289Z</published>
-    <updated>2024-04-27T07:01:12.303Z</updated>
+    <title>C/C++ 指针XX/XX指针</title>
+    <link href="http://laocaile.github.io/2024/05/07/cpp_pointer/"/>
+    <id>http://laocaile.github.io/2024/05/07/cpp_pointer/</id>
+    <published>2024-05-07T21:32:11.000Z</published>
+    <updated>2024-05-15T14:41:48.965Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>问题现象</strong><br>ubuntu每次启动后都要执行 sudo dhclient ens33(网络设备名) 网络才能正常。<br>dhclient 是一个动态主机配置协议（DHCP）的客户端程序，它自动配置网络接口的IP地址和其他相关网络设置。</p><p><strong>解决办法</strong><br>执行 sudo vi &#x2F;etc&#x2F;network&#x2F;interfaces，添加以下内容</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">auto ens33</span><br><span class="line">iface ens33 inet dhcp</span><br></pre></td></tr></table></figure><p>本机的网络设备名可以通过ifconfig命令查看<br><img src="/images/ubuntu_auto_dhcp/img_20240414021348_2.png" alt="Img"></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="指针数组-数组指针"><a href="#指针数组-数组指针" class="headerlink" title="指针数组 数组指针"></a>指针数组 数组指针</h1><ul><li>指针数组<br>写法：<code>int* array[]</code><br>特性：是一个数组，数组内容存放着指针  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line">    // 定义一个整型指针数组，每个元素都可以指向一个整数</span><br><span class="line">    int* ptrArray[3];</span><br><span class="line">    int var1 = 10, var2 = 20, var3 = 30;</span><br><span class="line">    </span><br><span class="line">    // 让指针数组的元素指向这些变量</span><br><span class="line">    ptrArray[0] = &amp;var1;</span><br><span class="line">    ptrArray[1] = &amp;var2;</span><br><span class="line">    ptrArray[2] = &amp;var3;</span><br><span class="line">    </span><br><span class="line">    // 访问并打印指向的值</span><br><span class="line">    for(int i = 0; i &lt; 3; i++) &#123;</span><br><span class="line">        printf(&quot;Value of var%d = %d\n&quot;, i+1, *ptrArray[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li><li>数组指针<br>写法：<code>int (*array)[]</code><br>特性：是一个指针，指向一个数组    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line">    // 定义一个整型数组</span><br><span class="line">    int arr[3] = &#123;10, 20, 30&#125;;</span><br><span class="line">    // 定义一个指向包含3个整型元素数组的指针</span><br><span class="line">    int (*ptrToArray)[3] = &amp;arr;</span><br><span class="line">    </span><br><span class="line">    // 通过数组指针访问数组元素</span><br><span class="line">    for(int i = 0; i &lt; 3; i++) &#123;</span><br><span class="line">        printf(&quot;Value of arr[%d] = %d\n&quot;, i, (*ptrToArray)[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><h1 id="指针常量-常量指针"><a href="#指针常量-常量指针" class="headerlink" title="指针常量 常量指针"></a>指针常量 常量指针</h1><ul><li><p>指针常量<br>写法： <code>int * const a</code><br>特性： 指针的指向不可以改变，但指针指向的值可以改变，即 *a&#x3D;10 是允许的，a&#x3D;&amp;b则不允许</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line">    int var1 = 10;</span><br><span class="line">    int var2 = 20;</span><br><span class="line"></span><br><span class="line">    // 声明一个指针常量</span><br><span class="line">    int* const ptrConst = &amp;var1;</span><br><span class="line"></span><br><span class="line">    // 可以通过指针常量修改其指向地址的值</span><br><span class="line">    *ptrConst = 15; // 正确</span><br><span class="line"></span><br><span class="line">    // 试图改变指针指向的地址将导致编译错误</span><br><span class="line">    // ptrConst = &amp;var2; // 错误</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>常量指针<br>写法： <code>int const * a</code><br>特性： 指针的指向可以改变，但指针指向的值不可以改变，即 a&#x3D;&amp;b 是允许的，*a&#x3D;10则不允许</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line">    int var1 = 10, var2 = 20;</span><br><span class="line">    // 声明一个常量指针</span><br><span class="line">    const int *ptr = &amp;var1;</span><br><span class="line"></span><br><span class="line">    // 通过指针试图改变var1的值将导致编译错误</span><br><span class="line">    // *ptr = 15; // 错误</span><br><span class="line"></span><br><span class="line">    // 可以改变指针指向的地址</span><br><span class="line">    ptr = &amp;var2; // 正确</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p><strong>根据写法记命名方式</strong><br><code>int * const a</code> *在前，const在后，所以叫做指针常量<br><code>int const * a</code> const在前，*在后，所以叫做常量指针</p></li><li><p><strong>根据const修饰的对象记住对应的特性</strong><br>我们都知道const修饰的变量称为常量，常量具有不可变的性质，在指针常量和常量指针中也是一样，只要关注是什么对象被const修饰即可。<br><code>int * const a</code> const修饰是a，在这a为地址，所以地址不可变，地址不可变在变量的角度就是a的指向不能修改，但*a是可以修改的，所以a指向的值可以修改。<br><code>int const * a</code> const修饰的是*a，所以*a不允许修改，但a本身没有const修饰，是允许修改的，所以指针本身可以修改，但指针指向的值不可以修改。</p></li></ul><h1 id="指针函数-函数指针"><a href="#指针函数-函数指针" class="headerlink" title="指针函数 函数指针"></a>指针函数 函数指针</h1><ul><li>指针函数<br>写法： <code>int * func()</code><br>特性： 指针函数实际上是一个函数，只不过返回值是一个指针，返回的指针可以是指向任何类型的指针，比如整型、字符型或者是结构体和数组的指针。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 一个返回整型指针的函数</span><br><span class="line">int* getPointerTo(int number) &#123;</span><br><span class="line">    static int temp;</span><br><span class="line">    temp = number;</span><br><span class="line">    return &amp;temp; // 返回局部静态变量的地址</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    // 在这里，func是一个指针函数</span><br><span class="line">    int *ptr = getPointerTo(5);</span><br><span class="line">    </span><br><span class="line">    printf(&quot;Value is: %d\n&quot;, *ptr);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li><li>函数指针<br>写法： <code>int (*funcptr)(...) = func</code><br>特性： 函数指针是指向函数的指针，它可以用来调用函数、传递函数地址等。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">int add(int a, int b) &#123;</span><br><span class="line">    return a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    // 声明一个函数指针，并使其指向add函数</span><br><span class="line">    int (*funcPtr)(int, int) = add;</span><br><span class="line">    </span><br><span class="line">    // 使用函数指针调用函数</span><br><span class="line">    int sum = funcPtr(2, 3);</span><br><span class="line">    printf(&quot;Sum is: %d\n&quot;, sum);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>函数指针通常用于回调函数中，它可以让函数像变量一样复制使用，使程序更灵活。</li></ul>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;&lt;strong&gt;问题现象&lt;/strong&gt;&lt;br&gt;ubuntu每次启动后都要执行 sudo dhclient ens33(网络设备名) 网络才能正常。&lt;br&gt;dhclient 是一个动态主机配置协议（DHCP）的客户端程序，它自动配置网络接口的IP地址和其他相关网络设置。&lt;</summary>
+    <summary type="html">&lt;h1 id=&quot;指针数组-数组指针&quot;&gt;&lt;a href=&quot;#指针数组-数组指针&quot; class=&quot;headerlink&quot; title=&quot;指针数组 数组指针&quot;&gt;&lt;/a&gt;指针数组 数组指针&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;指针数组&lt;br&gt;写法：&lt;code&gt;int* array[]&lt;/code&gt;</summary>
       
     
     
     
-    <category term="Ubuntu" scheme="http://laocaile.github.io/categories/Ubuntu/"/>
+    <category term="C/C++" scheme="http://laocaile.github.io/categories/C-C/"/>
     
     
   </entry>
@@ -43,9 +44,9 @@
     <link href="http://laocaile.github.io/2024/04/17/ubuntu_base_problem/"/>
     <id>http://laocaile.github.io/2024/04/17/ubuntu_base_problem/</id>
     <published>2024-04-17T20:02:11.000Z</published>
-    <updated>2024-04-27T07:44:40.075Z</updated>
+    <updated>2024-04-27T07:50:15.322Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="apt-update时，在tmp目录下无法创建文件"><a href="#apt-update时，在tmp目录下无法创建文件" class="headerlink" title="apt update时，在tmp目录下无法创建文件"></a>apt update时，在tmp目录下无法创建文件</h2><p><img src="/images/ubuntu_base_problem/img_20240427143249_6.png" alt="Img"><br>解决方法：更改tmp目录权限<br> <code>chmod 777 /tmp</code> </p><h2 id="apt-update时，source-源无法获取certificates"><a href="#apt-update时，source-源无法获取certificates" class="headerlink" title="apt update时，source 源无法获取certificates"></a>apt update时，source 源无法获取certificates</h2><p><img src="/images/ubuntu_base_problem/img_20240427143317_7.png" alt="Img"><br>解决方法：<br><code>apt-get install ca-certificates</code><br>若还是安装失败，可先将源切换回ubuntu原始源，再安装ca-certificates</p><h2 id="起机后sudo命令不可用"><a href="#起机后sudo命令不可用" class="headerlink" title="起机后sudo命令不可用"></a>起机后sudo命令不可用</h2><p><img src="/images/ubuntu_base_problem/img_20240427143417_8.png" alt="Img"><br><img src="/images/ubuntu_base_problem/img_20240427143419_9.png" alt="Img"><br>解决方法：修改root相关文件所有者<br><code>chown root:root /etc/sudoers</code><br><code>chown root:root /usr/bin/sudo</code><br><code>chown -R root /usr/lib/sudo</code><br><code>chmod 4755 /usr/bin/sudo</code><br><code>chown root:root /usr/lib/sudo/sudoers.so</code></p><p><img src="/images/ubuntu_base_problem/img_20240427143445_10.png" alt="Img"><br>解决方法：修改根路径权限<br><code>chmod 0755 / </code> </p><h2 id="su失败"><a href="#su失败" class="headerlink" title="su失败"></a>su失败</h2><p><img src="/images/ubuntu_base_problem/img_20240427143503_11.png" alt="Img"><br>解决方法：修改&#x2F;bin&#x2F;su权限<br><code>chown -R root:root /bin/su</code><br><code>chmod u+s /bin/su</code></p><h2 id="ssh连接时间长"><a href="#ssh连接时间长" class="headerlink" title="ssh连接时间长"></a>ssh连接时间长</h2><p><img src="/images/ubuntu_base_problem/img_20240427143533_12.png" alt="Img"><br>此错误信息表明 .Xauthority 文件时遇到了超时问题，这通常是由于文件被锁定造成的。.Xauthority 文件是用来存储运行 X 会话的用户授权信息的。这个问题可能是由文件权限错误、磁盘空间不足，或者是由于之前的 X 会话异常退出而文件锁定没有被正确清除导致的。</p><p>解决方法：重新构建.Xauthority</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm /home/$USER/.Xauthority-*</span><br><span class="line">sudo chown $USER:$USER /home/$USER/.Xauthority</span><br><span class="line">chmod 600 /home/$USER/.Xauthority</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="apt-update时，在tmp目录下无法创建文件"><a href="#apt-update时，在tmp目录下无法创建文件" class="headerlink" title="apt update时，在tmp目录下无法创建文件"></a>apt update时，在tmp目录下无法创建文件</h2><p><img src="/images/ubuntu_base_problem/img_20240427143249_6.png" alt="Img"><br>解决方法：更改tmp目录权限<br> <code>chmod 777 /tmp</code> </p><h2 id="apt-update时，source-源无法获取certificates"><a href="#apt-update时，source-源无法获取certificates" class="headerlink" title="apt update时，source 源无法获取certificates"></a>apt update时，source 源无法获取certificates</h2><p><img src="/images/ubuntu_base_problem/img_20240427143317_7.png" alt="Img"><br>解决方法：安装ca-certificates<br><code>apt-get install ca-certificates</code><br>若还是安装失败，可先将源切换回ubuntu原始源，再安装ca-certificates</p><h2 id="起机后sudo命令不可用"><a href="#起机后sudo命令不可用" class="headerlink" title="起机后sudo命令不可用"></a>起机后sudo命令不可用</h2><p><img src="/images/ubuntu_base_problem/img_20240427143417_8.png" alt="Img"><br><img src="/images/ubuntu_base_problem/img_20240427143419_9.png" alt="Img"><br>解决方法：修改root相关文件所有者<br><code>chown root:root /etc/sudoers</code><br><code>chown root:root /usr/bin/sudo</code><br><code>chown -R root /usr/lib/sudo</code><br><code>chmod 4755 /usr/bin/sudo</code><br><code>chown root:root /usr/lib/sudo/sudoers.so</code></p><p><img src="/images/ubuntu_base_problem/img_20240427143445_10.png" alt="Img"><br>解决方法：修改根路径权限<br><code>chmod 0755 / </code> </p><h2 id="su失败"><a href="#su失败" class="headerlink" title="su失败"></a>su失败</h2><p><img src="/images/ubuntu_base_problem/img_20240427143503_11.png" alt="Img"><br>解决方法：修改&#x2F;bin&#x2F;su权限<br><code>chown -R root:root /bin/su</code><br><code>chmod u+s /bin/su</code></p><h2 id="ssh连接时间长"><a href="#ssh连接时间长" class="headerlink" title="ssh连接时间长"></a>ssh连接时间长</h2><p><img src="/images/ubuntu_base_problem/img_20240427143533_12.png" alt="Img"><br>此错误信息表明 .Xauthority 文件时遇到了超时问题，这通常是由于文件被锁定造成的。.Xauthority 文件是用来存储运行 X 会话的用户授权信息的。这个问题可能是由文件权限错误、磁盘空间不足，或者是由于之前的 X 会话异常退出而文件锁定没有被正确清除导致的。</p><p>解决方法：重新构建.Xauthority<br><code>rm /home/$USER/.Xauthority-*</code><br><code>sudo chown $USER:$USER /home/$USER/.Xauthority</code><br><code>chmod 600 /home/$USER/.Xauthority</code></p>]]></content>
     
     
       
@@ -79,6 +80,28 @@
     
     
     <category term="C/C++" scheme="http://laocaile.github.io/categories/C-C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu 网络不自动获取IP</title>
+    <link href="http://laocaile.github.io/2024/02/19/ubuntu_auto_dhcp/"/>
+    <id>http://laocaile.github.io/2024/02/19/ubuntu_auto_dhcp/</id>
+    <published>2024-02-19T21:35:15.000Z</published>
+    <updated>2024-04-27T07:48:57.292Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>问题现象</strong><br>ubuntu每次启动后都要执行 sudo dhclient ens33(网络设备名) 网络才能正常。<br>dhclient 是一个动态主机配置协议（DHCP）的客户端程序，它自动配置网络接口的IP地址和其他相关网络设置。</p><p><strong>解决办法</strong><br>执行 sudo vi &#x2F;etc&#x2F;network&#x2F;interfaces，添加以下内容</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">auto ens33</span><br><span class="line">iface ens33 inet dhcp</span><br></pre></td></tr></table></figure><p>本机的网络设备名可以通过ifconfig命令查看<br><img src="/images/ubuntu_auto_dhcp/img_20240414021348_2.png" alt="Img"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;问题现象&lt;/strong&gt;&lt;br&gt;ubuntu每次启动后都要执行 sudo dhclient ens33(网络设备名) 网络才能正常。&lt;br&gt;dhclient 是一个动态主机配置协议（DHCP）的客户端程序，它自动配置网络接口的IP地址和其他相关网络设置。&lt;</summary>
+      
+    
+    
+    
+    <category term="Ubuntu" scheme="http://laocaile.github.io/categories/Ubuntu/"/>
     
     
   </entry>
@@ -176,26 +199,6 @@
   </entry>
   
   <entry>
-    <title>Hello world</title>
-    <link href="http://laocaile.github.io/2024/01/21/hello-world/"/>
-    <id>http://laocaile.github.io/2024/01/21/hello-world/</id>
-    <published>2024-01-21T07:59:06.175Z</published>
-    <updated>2024-03-10T04:35:34.716Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>ubuntu .bashrc的妙用</title>
     <link href="http://laocaile.github.io/2024/01/17/advance_use_bashrc/"/>
     <id>http://laocaile.github.io/2024/01/17/advance_use_bashrc/</id>
@@ -243,10 +246,10 @@
   
   <entry>
     <title>nmcli命令连接wifi</title>
-    <link href="http://laocaile.github.io/2023/12/21/Linux_connect_wifi/"/>
-    <id>http://laocaile.github.io/2023/12/21/Linux_connect_wifi/</id>
-    <published>2023-12-21T23:05:15.000Z</published>
-    <updated>2024-04-27T07:41:14.802Z</updated>
+    <link href="http://laocaile.github.io/2023/12/03/Linux_connect_wifi/"/>
+    <id>http://laocaile.github.io/2023/12/03/Linux_connect_wifi/</id>
+    <published>2023-12-03T21:05:15.000Z</published>
+    <updated>2024-04-27T07:48:17.504Z</updated>
     
     <content type="html"><![CDATA[<h1 id="列出wifi列表"><a href="#列出wifi列表" class="headerlink" title="列出wifi列表"></a>列出wifi列表</h1><p>nmcli dev wifi list<br><img src="/images/Linux_connect_wifi/img_20240427153159_14.png" alt="Img"></p><h1 id="连接wifi"><a href="#连接wifi" class="headerlink" title="连接wifi"></a>连接wifi</h1><ul><li><p>第一次连接<br><code>nmcli dev wifi connect \&lt;wifi_name&gt; password \&lt;wifi_passwd&gt; ifname wlan0</code></p></li><li><p>第一次连接成功后，再连接或切换wifi后不用在输入WiFi名<br><code>nmcli dev wifi connect \&lt;wifi_name&gt;</code></p></li></ul><h1 id="断开连接"><a href="#断开连接" class="headerlink" title="断开连接"></a>断开连接</h1><p> nmcli connection down &lt;wifi_name&gt;</p><h1 id="查看网络连接情况"><a href="#查看网络连接情况" class="headerlink" title="查看网络连接情况"></a>查看网络连接情况</h1><p> nmcli -t<br> nmcli -t -f TYPE c show –active<br> nmcli -t -f NAME c show –active<br> <img src="/images/Linux_connect_wifi/img_20240427154057_16.png" alt="Img"></p>]]></content>
     
@@ -259,6 +262,26 @@
     
     
     <category term="Linux_board" scheme="http://laocaile.github.io/categories/Linux-board/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello world</title>
+    <link href="http://laocaile.github.io/2023/12/03/hello-world/"/>
+    <id>http://laocaile.github.io/2023/12/03/hello-world/</id>
+    <published>2023-12-03T20:50:45.000Z</published>
+    <updated>2024-04-27T07:47:18.505Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
     
     
   </entry>
